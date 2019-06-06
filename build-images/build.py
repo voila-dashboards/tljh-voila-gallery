@@ -57,3 +57,7 @@ def main():
     for example in examples:
         logging.info(f'Building image {example.image}')
         build_image(example)
+
+
+if __name__ == '__main__':
+    main()
