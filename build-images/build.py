@@ -1,4 +1,5 @@
 
+import os
 from pathlib import Path
 import subprocess
 import yaml
@@ -42,7 +43,7 @@ def build_image(example):
 def parse_gallery_config(fp):
     config = yaml.load(fp)
     examples = []
-    for example_yaml in config['examples']:
+    for example_yaml in config['examples'].values():
         example = Example(
             image=example_yaml['image'],
             repo_url=example_yaml['repo-url']
@@ -52,8 +53,8 @@ def parse_gallery_config(fp):
 
 
 def main():
-    here = Path('.')
-    config_path = here / 'config.yaml'
+    here = Path(os.path.dirname(os.path.abspath(__file__)))
+    config_path = here / '../gallery.yaml'
     with config_path.open() as fp:
         examples = parse_gallery_config(fp)
     for example in examples:
