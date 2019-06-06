@@ -77,6 +77,7 @@ def tljh_extra_hub_pip_packages():
         'git+https://github.com/jupyter/repo2docker.git@f19e159dfe1006dbd82c7728e15cdd19751e8aec'
     ]
 
+@hookimpl
 def tljh_extra_apt_packages():
     return [
         'docker.io'
