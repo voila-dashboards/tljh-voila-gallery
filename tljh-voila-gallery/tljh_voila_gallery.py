@@ -42,7 +42,7 @@ def tljh_custom_jupyterhub_config(c):
 
         def start(self):
             gallery = get_gallery()
-            examples = gallery['example']
+            examples = gallery['examples']
             chosen_example = self.user_options['example']
             assert chosen_example in examples
             self.default_url = examples[chosen_example]['url']
