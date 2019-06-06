@@ -1,9 +1,11 @@
 examples:
-  voila: 
-    title: Voila Example Dashboards
-    image: voila:latest
-    url: /voila
-  ipyvuetify:
-    title: ipyvuetify
-    image: ipyvuetify:latest
-    url: /tree
+  country-indicators:
+    title: country-indicators
+    image: country-indicators:latest
+    url: /voila/render/index.ipynb
+    repo-url: https://github.com/voila-gallery/voila-gallery-country-indicators
+  gaussian-density:
+    title: gaussian-density
+    image: gaussian-density:latest
+    url: /voila/render/index.ipynb
+    repo-url: https://github.com/voila-gallery/gaussian-density
