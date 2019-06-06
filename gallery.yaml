@@ -1,0 +1,9 @@
+examples:
+  voila: 
+    title: Voila Example Dashboards
+    image: voila:latest
+    url: /voila
+  ipyvuetify:
+    title: ipyvuetify
+    image: ipyvuetify:latest
+    url: /tree

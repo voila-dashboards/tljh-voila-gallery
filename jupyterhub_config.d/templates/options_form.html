@@ -1,0 +1,8 @@
+{% for example_name, info in images.items() %}
+<div class="radio">
+  <label>
+    <input type="radio" name="example" id="example-{{example_name}}" value="{{example_name}}" />
+    {{ info.title }}
+  </label>
+</div>
+{% endfor %}
