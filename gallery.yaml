@@ -3,9 +3,9 @@ examples:
     title: Voila Example Dashboards
     image: voila:latest
     url: /voila
-    repo: QuantStack/voila
+    repo-url: https://github.com/QuantStack/voila
   ipyvuetify:
     title: ipyvuetify
     image: ipyvuetify:latest
     url: /tree
-    repo: mariobuikhuizen/ipyvuetify
+    repo-url: https://github.com/mariobuikhuizen/ipyvuetify
