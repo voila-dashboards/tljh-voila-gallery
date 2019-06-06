@@ -4,8 +4,8 @@ examples:
     image: country-indicators:latest
     url: /voila/render/index.ipynb
     repo-url: https://github.com/voila-gallery/voila-gallery-country-indicators
-  ipyvuetify:
-    title: ipyvuetify
-    image: ipyvuetify:latest
-    url: /tree
-    repo-url: https://github.com/mariobuikhuizen/ipyvuetify
+  gaussian-density:
+    title: gaussian-density
+    image: gaussian-density:latest
+    url: /voila/render/index.ipynb
+    repo-url: https://github.com/voila-gallery/gaussian-density
