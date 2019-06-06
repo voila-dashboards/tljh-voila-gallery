@@ -27,7 +27,7 @@ def options_form(spawner):
         gallery = yaml.load(f)
 
     with open(os.path.join(TEMPLATES_PATH, 'options_form.html')) as f:
-        return jinja2.Template(f.read()).render(images=gallery['items'])
+        return jinja2.Template(f.read()).render(examples=gallery['examples'])
 
 @hookimpl
 def tljh_custom_jupyterhub_config(c):
