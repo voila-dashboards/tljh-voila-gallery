@@ -30,6 +30,7 @@ def build_image(example):
         'jovyan',
         '--user-id',
         '1000',
+        '--no-run',
         '--image-name',
         example.image,
         '--appendix',
