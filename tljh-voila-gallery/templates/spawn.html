@@ -1,0 +1,21 @@
+{% extends "templates/spawn.html" %}
+
+{% block main %}
+
+<div class="container">
+  {% block heading %}
+  <div class="row text-center">
+    <h1>Voila Dashboards Gallery</h1>
+    <small>This page can be solved with a template</small>
+  </div>
+  {% endblock %}
+  <div class="row col-sm-offset-2 col-sm-8">
+    <form enctype="multipart/form-data" id="spawn_form" action="{{url}}" method="post" role="form">
+      {{spawner_options_form | safe}}
+      <br>
+      <input type="submit" value="View Gallery" class="btn btn-jupyter form-control">
+    </form>
+  </div>
+</div>
+
+{% endblock %}
