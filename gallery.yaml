@@ -1,9 +1,9 @@
 examples:
-  voila: 
-    title: Voila Example Dashboards
-    image: voila:latest
-    url: /voila
-    repo-url: https://github.com/QuantStack/voila
+  country-indicators:
+    title: country-indicators
+    image: country-indicators:latest
+    url: /voila/render/index.ipynb
+    repo-url: https://github.com/voila-gallery/voila-gallery-country-indicators
   ipyvuetify:
     title: ipyvuetify
     image: ipyvuetify:latest
