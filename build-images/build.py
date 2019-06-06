@@ -53,7 +53,8 @@ def parse_gallery_config(fp):
 def main():
     here = Path('.')
     config_path = here / 'config.yaml'
-    examples = parse_gallery_config(config_path)
+    with config_path.open() as fp:
+        examples = parse_gallery_config(fp)
     for example in examples:
         logging.info(f'Building image {example.image}')
         build_image(example)
