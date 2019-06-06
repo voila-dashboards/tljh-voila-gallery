@@ -2,7 +2,6 @@ import socket
 import os
 import jinja2
 from ruamel.yaml import YAML
-from dockerspawner import DockerSpawner
 from tljh.hooks import hookimpl
 
 yaml = YAML()
@@ -19,21 +18,6 @@ def get_gallery():
     with open(GALLERY_PATH) as f:
         return yaml.load(f)
 
-class GallerySpawner(DockerSpawner):
-    def options_from_form(self, formdata):
-        options = {}
-        if 'example' in formdata:
-            options['example'] = formdata['example'][0]
-        return options
-
-    def start(self):
-        gallery = get_gallery()
-        examples = gallery['example']
-        chosen_example = self.user_options['example']
-        assert chosen_example in examples
-        self.default_url = examples[chosen_example]['url']
-        self.image = examples[chosen_example]['image']
-        return super().start()
 
 def options_form(spawner):
     # Load the files each time, so we can put them in a different
@@ -47,6 +31,24 @@ def options_form(spawner):
 
 @hookimpl
 def tljh_custom_jupyterhub_config(c):
+    # Since dockerspawner isn't available at import time
+    from dockerspawner import DockerSpawner
+    class GallerySpawner(DockerSpawner):
+        def options_from_form(self, formdata):
+            options = {}
+            if 'example' in formdata:
+                options['example'] = formdata['example'][0]
+            return options
+
+        def start(self):
+            gallery = get_gallery()
+            examples = gallery['example']
+            chosen_example = self.user_options['example']
+            assert chosen_example in examples
+            self.default_url = examples[chosen_example]['url']
+            self.image = examples[chosen_example]['image']
+            return super().start()
+
     c.JupyterHub.spawner_class = GallerySpawner
     c.JupyterHub.authenticator_class = 'tmpauthenticator.TmpAuthenticator'
 
