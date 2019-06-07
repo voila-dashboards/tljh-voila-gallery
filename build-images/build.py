@@ -46,7 +46,7 @@ def parse_gallery_config(fp):
     for example_yaml in config['examples'].values():
         example = Example(
             image=example_yaml['image'],
-            repo_url=example_yaml['repo-url']
+            repo_url=example_yaml['repo_url']
         )
         examples.append(example)
     return examples

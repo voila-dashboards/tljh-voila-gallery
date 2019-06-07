@@ -1,8 +1,20 @@
+<div class="row">
 {% for example_name, info in examples.items() %}
-<div class="radio">
-  <label>
-    <input type="radio" name="example" id="example-{{example_name}}" value="{{example_name}}" />
-    {{ info.title }}
-  </label>
-</div>
+        <div class="col-md-4">
+          <div class="card mb-4 shadow-sm">
+<img src="{{info.image_url}}" height="225" width="100%" />
+            <div class="card-body">
+	      <h4>{{ info.title }}</h4>
+              <p class="card-text">{{ info.description }}</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+    <input type="radio" name="example" id="example-{{example_name}}" value="{{example_name}}" class="d-none"/>
+                  <button type="submit" data-example-name="{{example_name}}" class="launch-example btn btn-primary">Launch Example</button>
+                  <a href="{{info.repo_url}}" target="_blank" type="button" class="btn btn-secondary">View Source</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
 {% endfor %}
+</div>
