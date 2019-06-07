@@ -1,15 +1,15 @@
 examples:
   country-indicators:
     title: country-indicators
-    description: A dashboard that does some indicators for some countries? Maybe
+    description: Explore the correlations between indicators of development using matplotlib and ipywidgets
     image: country-indicators:latest
     url: /voila/render/index.ipynb
-    repo-url: https://github.com/voila-gallery/voila-gallery-country-indicators
+    repo_url: https://github.com/voila-gallery/voila-gallery-country-indicators
     image_url: https://i.imgur.com/IeG75O3.png
   gaussian-density:
     title: gaussian-density
-    description: words to see how this looks like. Not sure what this is to be described
+    description: Explore the normal distribution interactively with bqplot
     image: gaussian-density:latest
     url: /voila/render/index.ipynb
-    repo-url: https://github.com/voila-gallery/gaussian-density
+    repo_url: https://github.com/voila-gallery/gaussian-density
     image_url: https://i.imgur.com/J1Mj6rc.png
