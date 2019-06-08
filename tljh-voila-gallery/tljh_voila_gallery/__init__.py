@@ -8,7 +8,7 @@ from tljh.hooks import hookimpl
 yaml = YAML()
 
 # FIXME: Make this configurable?
-GALLERY_PATH = '../gallery.yaml'  # relative to package root
+GALLERY_PATH = 'gallery.yaml'  # relative to package root
 
 TEMPLATES_PATH = resource_filename(__name__, 'templates')
 

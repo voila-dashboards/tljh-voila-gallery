@@ -13,7 +13,7 @@ logging.basicConfig(level=logging.INFO)
 yaml = YAML()
 
 REPO2DOCKER = '/opt/tljh/hub/bin/repo2docker'
-GALLERY_PATH = '../gallery.yaml'  # Relative to module root
+GALLERY_PATH = 'gallery.yaml'  # Relative to module root
 
 
 Example = namedtuple(
