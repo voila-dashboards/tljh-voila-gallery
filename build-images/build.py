@@ -2,13 +2,14 @@
 import os
 from pathlib import Path
 import subprocess
-import yaml
 from collections import namedtuple
 import logging
 
+from ruamel.yaml import YAML
 
 logging.basicConfig(level=logging.INFO)
 
+yaml = YAML()
 
 REPO2DOCKER = '/opt/tljh/hub/bin/repo2docker'
 
