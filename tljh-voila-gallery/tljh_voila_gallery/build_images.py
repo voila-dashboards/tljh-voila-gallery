@@ -3,6 +3,7 @@ import os
 from pathlib import Path
 import subprocess
 from collections import namedtuple
+from pkg_resources import resource_stream
 import logging
 
 from ruamel.yaml import YAML
@@ -12,6 +13,7 @@ logging.basicConfig(level=logging.INFO)
 yaml = YAML()
 
 REPO2DOCKER = '/opt/tljh/hub/bin/repo2docker'
+GALLERY_PATH = 'gallery.yaml'  # Relative to module root
 
 
 Example = namedtuple(
@@ -54,9 +56,7 @@ def parse_gallery_config(fp):
 
 
 def main():
-    here = Path(os.path.dirname(os.path.abspath(__file__)))
-    config_path = here / '../gallery.yaml'
-    with config_path.open() as fp:
+    with resource_stream(__name__, GALLERY_PATH) as fp:
         examples = parse_gallery_config(fp)
     for example in examples:
         logging.info(f'Building image {example.image}')
