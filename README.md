@@ -11,9 +11,9 @@ examples. Use this for inspiration on using voila and
 3. Create a PR to [voila-gallery](https://github.com/voila-gallery/gallery) that
    modifies `tljh-voila-gallery/tljh_voila_gallery/gallery.yaml`.
    You will need to fill in the following fields:
-   - title: the title used in the page thumbnail.
-   - description: the description used in the page thumbnail.
-   - image: the name of the built Docker image. This should be `$title:latest`.
-   - url: the URL of the notebook to render.
-   - repo_url: the URL of the repository serving as source.
-   - image_url: the URL of the picture to use as thumbnail.
+   - `title`: the title used in the page thumbnail.
+   - `description`: the description used in the page thumbnail.
+   - `image`: the name of the built Docker image. This should be `$title:latest`.
+   - `url`: the URL of the notebook to render.
+   - `repo_url`: the URL of the repository serving as source.
+   - `image_url`: the URL of the picture to use as thumbnail.
