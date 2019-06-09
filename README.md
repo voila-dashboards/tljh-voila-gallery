@@ -4,6 +4,13 @@ This is a gallery of [voila](https://github.com/QuantStack/voila)
 examples. Use this for inspiration on using voila and
 [ipywidgets](https://github.com/jupyter-widgets/ipywidgets).
 
+View the gallery at [voila-gallery.org](http://voila-gallery.org).
+
+## Going back to the gallery screen
+
+At the moment, the only way to go back to gallery screen is to hit the
+[/hub/logout](http://voila-gallery.org/hub/logout) endpoint.
+
 ## Contributing new examples
 
 1. Create a repository with your notebook. You can copy the [gaussian-density](https://github.com/voila-gallery/gaussian-density) example.
