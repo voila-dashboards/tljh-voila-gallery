@@ -15,7 +15,7 @@ examples:
     image_url: https://i.imgur.com/J1Mj6rc.png
   render-stl:
     title: render-stl
-    description: render STL files with ipyvolume
+    description: Explore STL files with ipyvolume
     image: render-stl:latest
     url: /voila/render/index.ipynb
     repo_url: https://github.com/voila-gallery/render-stl
