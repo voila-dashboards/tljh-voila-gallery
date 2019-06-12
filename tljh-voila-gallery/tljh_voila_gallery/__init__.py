@@ -67,14 +67,6 @@ def tljh_custom_jupyterhub_config(c):
 
     c.Spawner.options_form = options_form
 
-
-@hookimpl
-def tljh_extra_hub_pip_packages():
-    return [
-        'dockerspawner',
-        'git+https://github.com/jupyter/repo2docker.git@f19e159dfe1006dbd82c7728e15cdd19751e8aec'
-    ]
-
 @hookimpl
 def tljh_extra_apt_packages():
     return [
