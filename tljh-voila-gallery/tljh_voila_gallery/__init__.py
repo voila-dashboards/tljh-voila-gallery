@@ -1,4 +1,5 @@
 import socket
+import sys
 import os
 import jinja2
 from pkg_resources import resource_stream, resource_filename
@@ -69,7 +70,7 @@ def tljh_custom_jupyterhub_config(c):
         'admin': True,
         'url': 'http://127.0.0.1:9888',
         'command': [
-            'python3', '-m', 'tljh_voila_gallery.gallery'
+            sys.executable, '-m', 'tljh_voila_gallery.gallery'
         ]
     }]
 
