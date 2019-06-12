@@ -42,8 +42,6 @@ class GalleryHandler(web.RequestHandler):
             example['image'],
             launcher.unique_name_from_repo(example['repo_url'])
         )
-        print(json.dumps(example) + '\n', flush=True)
-        print(json.dumps(response), flush=True)
         redirect_url = urljoin(
             response['url'],
             example['url']
@@ -52,7 +50,6 @@ class GalleryHandler(web.RequestHandler):
         
 
 def make_app():
-    print(os.environ['JUPYTERHUB_SERVICE_PREFIX'], flush=True)
     return web.Application([
         (os.environ['JUPYTERHUB_SERVICE_PREFIX'] + '/?', GalleryHandler),
     ])
