@@ -29,26 +29,32 @@ def options_form(spawner):
 
 @hookimpl
 def tljh_custom_jupyterhub_config(c):
-    # Since dockerspawner isn't available at import time
     from dockerspawner import DockerSpawner
     class GallerySpawner(DockerSpawner):
-        def options_from_form(self, formdata):
-            options = {}
-            if 'example' in formdata:
-                options['example'] = formdata['example'][0]
-            return options
+        # FIXME: What to do about idle culling?!
+        cmd = 'jupyter-notebook'
+        events = False
+
+        def get_args(self):
+            args = [
+                '--ip=0.0.0.0',
+                '--port=%i' % self.port,
+                '--NotebookApp.base_url=%s' % self.server.base_url,
+                '--NotebookApp.token=%s' % self.user_options['token'],
+                '--NotebookApp.trust_xheaders=True',
+            ]
+            return args + self.args
 
         def start(self):
-            gallery = get_gallery()
-            examples = gallery['examples']
-            chosen_example = self.user_options['example']
-            assert chosen_example in examples
-            self.default_url = examples[chosen_example]['url']
-            self.image = examples[chosen_example]['image']
+            if 'token' not in self.user_options:
+                raise web.HTTPError(400, "token required")
+            if 'image' not in self.user_options:
+                raise web.HTTPError(400, "image required")
+            self.image = self.user_options['image']
             return super().start()
 
     c.JupyterHub.spawner_class = GallerySpawner
-    c.JupyterHub.authenticator_class = 'tmpauthenticator.TmpAuthenticator'
+    c.JupyterHub.authenticator_class = 'nullauthenticator.NullAuthenticator'
 
     c.JupyterHub.hub_connect_ip = socket.gethostname()
 
@@ -57,15 +63,15 @@ def tljh_custom_jupyterhub_config(c):
 
     # rm containers when they stop
     c.DockerSpawner.remove = True
-    # Disabled until we fix it in TmpAuthenticator
-    # c.TmpAuthenticator.force_new_server = True
 
-    c.DockerSpawner.cmd = ['jupyterhub-singleuser']
-
-    # Override JupyterHub template
-    c.JupyterHub.template_paths = [TEMPLATES_PATH]
-
-    c.Spawner.options_form = options_form
+    c.JupyterHub.services = [{
+        'name': 'gallery',
+        'admin': True,
+        'url': 'http://127.0.0.1:9888',
+        'command': [
+            'python3', '-m', 'tljh_voila_gallery.gallery'
+        ]
+    }]
 
 @hookimpl
 def tljh_extra_apt_packages():
