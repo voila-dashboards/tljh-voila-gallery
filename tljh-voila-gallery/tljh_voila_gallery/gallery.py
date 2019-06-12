@@ -5,6 +5,7 @@ from ruamel.yaml import YAML
 from jinja2 import PackageLoader, Environment
 import json
 from binderhub.launcher import Launcher
+from urllib.parse import urljoin, urlencode
 
 yaml = YAML()
 
@@ -43,10 +44,11 @@ class GalleryHandler(web.RequestHandler):
         )
         print(json.dumps(example) + '\n', flush=True)
         print(json.dumps(response), flush=True)
-        # FIXME: urljoin here
-        self.redirect(
-            response['url'] + '?' + 'token=' + response['token']
-        )
+        redirect_url = urljoin(
+            response['url'],
+            example['url']
+        ) +  '?' + urlencode({'token': response['token']})
+        self.redirect(redirect_url)
         
 
 def make_app():
