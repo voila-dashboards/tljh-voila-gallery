@@ -31,9 +31,11 @@ def options_form(spawner):
 @hookimpl
 def tljh_custom_jupyterhub_config(c):
     from dockerspawner import DockerSpawner
+    from nullauthenticator import NullAuthenticator
     class GallerySpawner(DockerSpawner):
         # FIXME: What to do about idle culling?!
         cmd = 'jupyter-notebook'
+
         events = False
 
         def get_args(self):
@@ -54,8 +56,15 @@ def tljh_custom_jupyterhub_config(c):
             self.image = self.user_options['image']
             return super().start()
 
+
+    class GalleryAuthenticator(NullAuthenticator):
+        auto_login = True
+
+        def login_url(self, base_url):
+            return '/services/gallery'
+
     c.JupyterHub.spawner_class = GallerySpawner
-    c.JupyterHub.authenticator_class = 'nullauthenticator.NullAuthenticator'
+    c.JupyterHub.authenticator_class = GalleryAuthenticator
 
     c.JupyterHub.hub_connect_ip = socket.gethostname()
 
