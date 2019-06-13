@@ -11,6 +11,7 @@ setup(
     install_requires=[
         # These get installed into the hub environment
         'dockerspawner',
+        'jupyter-repo2docker',
         'binderhub',
         'nullauthenticator'
     ]
