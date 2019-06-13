@@ -1,4 +1,5 @@
 import socket
+import sys
 import os
 import jinja2
 from pkg_resources import resource_stream, resource_filename
@@ -29,26 +30,41 @@ def options_form(spawner):
 
 @hookimpl
 def tljh_custom_jupyterhub_config(c):
-    # Since dockerspawner isn't available at import time
     from dockerspawner import DockerSpawner
+    from nullauthenticator import NullAuthenticator
     class GallerySpawner(DockerSpawner):
-        def options_from_form(self, formdata):
-            options = {}
-            if 'example' in formdata:
-                options['example'] = formdata['example'][0]
-            return options
+        # FIXME: What to do about idle culling?!
+        cmd = 'jupyter-notebook'
+
+        events = False
+
+        def get_args(self):
+            args = [
+                '--ip=0.0.0.0',
+                '--port=%i' % self.port,
+                '--NotebookApp.base_url=%s' % self.server.base_url,
+                '--NotebookApp.token=%s' % self.user_options['token'],
+                '--NotebookApp.trust_xheaders=True',
+            ]
+            return args + self.args
 
         def start(self):
-            gallery = get_gallery()
-            examples = gallery['examples']
-            chosen_example = self.user_options['example']
-            assert chosen_example in examples
-            self.default_url = examples[chosen_example]['url']
-            self.image = examples[chosen_example]['image']
+            if 'token' not in self.user_options:
+                raise web.HTTPError(400, "token required")
+            if 'image' not in self.user_options:
+                raise web.HTTPError(400, "image required")
+            self.image = self.user_options['image']
             return super().start()
 
+
+    class GalleryAuthenticator(NullAuthenticator):
+        auto_login = True
+
+        def login_url(self, base_url):
+            return '/services/gallery'
+
     c.JupyterHub.spawner_class = GallerySpawner
-    c.JupyterHub.authenticator_class = 'tmpauthenticator.TmpAuthenticator'
+    c.JupyterHub.authenticator_class = GalleryAuthenticator
 
     c.JupyterHub.hub_connect_ip = socket.gethostname()
 
@@ -57,23 +73,15 @@ def tljh_custom_jupyterhub_config(c):
 
     # rm containers when they stop
     c.DockerSpawner.remove = True
-    # Disabled until we fix it in TmpAuthenticator
-    # c.TmpAuthenticator.force_new_server = True
 
-    c.DockerSpawner.cmd = ['jupyterhub-singleuser']
-
-    # Override JupyterHub template
-    c.JupyterHub.template_paths = [TEMPLATES_PATH]
-
-    c.Spawner.options_form = options_form
-
-
-@hookimpl
-def tljh_extra_hub_pip_packages():
-    return [
-        'dockerspawner',
-        'git+https://github.com/jupyter/repo2docker.git@f19e159dfe1006dbd82c7728e15cdd19751e8aec'
-    ]
+    c.JupyterHub.services = [{
+        'name': 'gallery',
+        'admin': True,
+        'url': 'http://127.0.0.1:9888',
+        'command': [
+            sys.executable, '-m', 'tljh_voila_gallery.gallery'
+        ]
+    }]
 
 @hookimpl
 def tljh_extra_apt_packages():
