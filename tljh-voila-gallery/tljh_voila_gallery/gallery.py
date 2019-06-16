@@ -39,7 +39,7 @@ class GalleryHandler(web.RequestHandler):
             hub_url=os.environ['JUPYTERHUB_BASE_URL']
         )
         response = await launcher.launch(
-            example['image'],
+            f'{example_name}:latest',
             launcher.unique_name_from_repo(example['repo_url'])
         )
         redirect_url = urljoin(
