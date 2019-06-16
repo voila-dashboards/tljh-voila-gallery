@@ -48,9 +48,9 @@ def build_image(example):
 def parse_gallery_config(fp):
     config = yaml.load(fp)
     examples = []
-    for example_yaml in config['examples'].values():
+    for example_name, example_yaml in config['examples'].items():
         example = Example(
-            image=example_yaml['image'],
+            image=f'{example_name}:latest',
             repo_url=example_yaml['repo_url']
         )
         examples.append(example)

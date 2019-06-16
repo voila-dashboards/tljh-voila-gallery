@@ -2,21 +2,18 @@ examples:
   country-indicators:
     title: country-indicators
     description: Explore the correlations between indicators of development using matplotlib and ipywidgets
-    image: country-indicators:latest
     url: voila/render/index.ipynb
     repo_url: https://github.com/voila-gallery/voila-gallery-country-indicators
     image_url: https://i.imgur.com/IeG75O3.png
   gaussian-density:
     title: gaussian-density
     description: Explore the normal distribution interactively with bqplot
-    image: gaussian-density:latest
     url: voila/render/index.ipynb
     repo_url: https://github.com/voila-gallery/gaussian-density
     image_url: https://i.imgur.com/J1Mj6rc.png
   render-stl:
     title: render-stl
     description: Explore STL files with ipyvolume
-    image: render-stl:latest
     url: voila/render/index.ipynb
     repo_url: https://github.com/voila-gallery/render-stl
     image_url: https://github.com/voila-gallery/render-stl/raw/master/thumbnail.png
