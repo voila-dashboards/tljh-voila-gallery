@@ -5,6 +5,11 @@ import jinja2
 from pkg_resources import resource_stream, resource_filename
 from ruamel.yaml import YAML
 from tljh.hooks import hookimpl
+from tornado import web
+
+from dockerspawner import DockerSpawner
+from nullauthenticator import NullAuthenticator
+
 
 yaml = YAML()
 
@@ -28,40 +33,39 @@ def options_form(spawner):
     with open(os.path.join(TEMPLATES_PATH, 'options_form.html')) as f:
         return jinja2.Template(f.read()).render(examples=gallery['examples'])
 
+class GallerySpawner(DockerSpawner):
+    # FIXME: What to do about idle culling?!
+    cmd = 'jupyter-notebook'
+
+    events = False
+
+    def get_args(self):
+        args = [
+            '--ip=0.0.0.0',
+            '--port=%i' % self.port,
+            '--NotebookApp.base_url=%s' % self.server.base_url,
+            '--NotebookApp.token=%s' % self.user_options['token'],
+            '--NotebookApp.trust_xheaders=True',
+        ]
+        return args + self.args
+
+    def start(self):
+        if 'token' not in self.user_options:
+            raise web.HTTPError(400, "token required")
+        if 'image' not in self.user_options:
+            raise web.HTTPError(400, "image required")
+        self.image = self.user_options['image']
+        return super().start()
+
+
+class GalleryAuthenticator(NullAuthenticator):
+    auto_login = True
+
+    def login_url(self, base_url):
+        return '/services/gallery'
+
 @hookimpl
 def tljh_custom_jupyterhub_config(c):
-    from dockerspawner import DockerSpawner
-    from nullauthenticator import NullAuthenticator
-    class GallerySpawner(DockerSpawner):
-        # FIXME: What to do about idle culling?!
-        cmd = 'jupyter-notebook'
-
-        events = False
-
-        def get_args(self):
-            args = [
-                '--ip=0.0.0.0',
-                '--port=%i' % self.port,
-                '--NotebookApp.base_url=%s' % self.server.base_url,
-                '--NotebookApp.token=%s' % self.user_options['token'],
-                '--NotebookApp.trust_xheaders=True',
-            ]
-            return args + self.args
-
-        def start(self):
-            if 'token' not in self.user_options:
-                raise web.HTTPError(400, "token required")
-            if 'image' not in self.user_options:
-                raise web.HTTPError(400, "image required")
-            self.image = self.user_options['image']
-            return super().start()
-
-
-    class GalleryAuthenticator(NullAuthenticator):
-        auto_login = True
-
-        def login_url(self, base_url):
-            return '/services/gallery'
 
     c.JupyterHub.spawner_class = GallerySpawner
     c.JupyterHub.authenticator_class = GalleryAuthenticator

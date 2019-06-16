@@ -1,0 +1,3 @@
+from tljh_voila_gallery import tljh_custom_jupyterhub_config
+
+tljh_custom_jupyterhub_config(c)
