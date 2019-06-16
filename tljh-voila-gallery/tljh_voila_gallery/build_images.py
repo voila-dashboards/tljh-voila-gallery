@@ -1,4 +1,5 @@
 
+import sys
 import os
 from pathlib import Path
 import subprocess
@@ -12,7 +13,6 @@ logging.basicConfig(level=logging.INFO)
 
 yaml = YAML()
 
-REPO2DOCKER = '/opt/tljh/hub/bin/repo2docker'
 GALLERY_PATH = 'gallery.yaml'  # Relative to module root
 
 
@@ -27,7 +27,9 @@ Example = namedtuple(
 
 def build_image(example):
     subprocess.run([
-        REPO2DOCKER,
+        sys.executable,
+        '-m',
+        'repo2docker',
         '--ref',
         'master',
         '--user-name',
