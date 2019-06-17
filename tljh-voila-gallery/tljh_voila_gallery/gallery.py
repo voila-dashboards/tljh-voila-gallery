@@ -23,7 +23,8 @@ class GalleryHandler(web.RequestHandler):
 
         self.write(gallery_template.render(
             url=self.request.full_url(),
-            examples=gallery.get('examples', [])
+            examples=gallery.get('examples', []),
+            static_url=self.static_url
         ))
 
     async def post(self):
@@ -47,12 +48,20 @@ class GalleryHandler(web.RequestHandler):
             example['url']
         ) +  '?' + urlencode({'token': response['token']})
         self.redirect(redirect_url)
-        
+
 
 def make_app():
+    service_prefix = os.environ['JUPYTERHUB_SERVICE_PREFIX']
+    app_settings = {
+        'static_path': os.path.join(os.path.dirname(__file__), 'static'),
+        'static_url_prefix': f'{service_prefix}/static/'
+    }
     return web.Application([
-        (os.environ['JUPYTERHUB_SERVICE_PREFIX'] + '/?', GalleryHandler),
-    ])
+        (rf'{service_prefix}?', GalleryHandler),
+        (rf'{service_prefix}static/(.*)', web.StaticFileHandler, {
+            'path': app_settings['static_path']
+        })
+    ], **app_settings)
 
 if __name__ == "__main__":
     if not os.environ['JUPYTERHUB_API_URL'].endswith('/'):

@@ -1,2 +1,3 @@
 recursive-include tljh_voila_gallery/templates/ *
+recursive-include tljh_voila_gallery/static/ *
 include tljh_voila_gallery/gallery.yaml
