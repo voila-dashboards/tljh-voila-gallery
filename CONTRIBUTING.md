@@ -26,7 +26,15 @@ plugin, you can develop it locally without needing TLJH. You just need
    pip install -e tljh-voila-gallery
    ```
 
-3. Build all the images
+3. Install [configurable-http-proxy](https://github.com/jupyterhub/configurable-http-proxy).
+   This is needed by JupyterHub, and you need [nodejs](https://nodejs.org/en/) / [npm](https://npmjs.com)
+   to install it.
+
+   ```bash
+   npm -g install configurable-http-proxy
+   ```
+
+4. Build all the images
 
    ```bash
    python3 -m tljh_voila_gallery.build_images
@@ -37,7 +45,7 @@ plugin, you can develop it locally without needing TLJH. You just need
    calls, you should use `sudo $(which python3)` rather than just
    `python3`
 
-4. Start JupyterHub with the testing config
+5. Start JupyterHub with the testing config
 
    ```bash
    python3 -m jupyterhub -f jupyterhub_config.py
