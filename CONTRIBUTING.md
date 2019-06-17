@@ -23,7 +23,7 @@ plugin, you can develop it locally without needing TLJH. You just need
 2. Do a dev install of the `tljh_voila_gallery` package.
 
    ```bash
-   pip install -e tljh_voila_gallery
+   pip install -e tljh-voila-gallery
    ```
 
 3. Build all the images
