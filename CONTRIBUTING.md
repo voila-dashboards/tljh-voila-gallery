@@ -3,8 +3,8 @@
 ## Setting up a dev environment
 
 Though voila-gallery is deployed as a [TLJH](https://tljh.jupyter.org)
-plugin, you can develop it locally without needing TLJH. You just need
-[docker](https://docker.com) and Python 3.6+ installed.
+plugin, you can develop it locally without needing to install TLJH.
+You just need [docker](https://docker.com) and Python 3.6+ installed.
 
 1. Create a virtual environment to work in, with your favorite
    Python virtual environment tool. With Python's built in `venv`
