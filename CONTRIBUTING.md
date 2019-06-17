@@ -15,6 +15,11 @@ plugin, you can develop it locally without needing TLJH. You just need
    source bin/activate
    ```
 
+2. Install development requirements
+
+   ```bash
+   pip install -r dev-requirements.txt
+   ```
 2. Do a dev install of the `tljh_voila_gallery` package.
 
    ```bash
