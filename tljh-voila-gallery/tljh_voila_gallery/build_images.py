@@ -40,7 +40,7 @@ def build_image(example):
         '--image-name',
         example.image,
         '--appendix',
-        'run ${NB_PYTHON_PREFIX}/bin/pip install --no-cache voila==0.1.2',
+        'run ${NB_PYTHON_PREFIX}/bin/pip install --no-cache-dir voila==0.1.2',
         example.repo_url
     ])
 
