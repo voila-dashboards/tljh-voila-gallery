@@ -22,7 +22,7 @@ class GalleryHandler(web.RequestHandler):
         gallery = get_gallery()
 
         self.write(gallery_template.render(
-            url=self.request.full_url(),
+            url=self.request.uri,
             examples=gallery.get('examples', []),
             static_url=self.static_url
         ))
