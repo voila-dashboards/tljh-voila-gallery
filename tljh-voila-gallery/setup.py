@@ -14,6 +14,6 @@ setup(
         'dockerspawner',
         'jupyter-repo2docker',
         'binderhub',
-        'nullauthenticator'
+        'jupyter-tmpauthenticator'
     ]
 )

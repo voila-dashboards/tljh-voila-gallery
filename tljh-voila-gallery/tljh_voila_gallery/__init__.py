@@ -5,10 +5,10 @@ import jinja2
 from pkg_resources import resource_stream, resource_filename
 from ruamel.yaml import YAML
 from tljh.hooks import hookimpl
-from tornado import web
+from tornado import web, gen
 
 from dockerspawner import DockerSpawner
-from nullauthenticator import NullAuthenticator
+from tmpauthenticator import TmpAuthenticator
 
 
 yaml = YAML()
@@ -34,20 +34,22 @@ def options_form(spawner):
         return jinja2.Template(f.read()).render(examples=gallery['examples'])
 
 class GallerySpawner(DockerSpawner):
-    # FIXME: What to do about idle culling?!
-    cmd = 'jupyter-notebook'
-
+    # FIXME: cmd should be picked up without manually setting `_user_set_cmd`
+    _user_set_cmd = True
+    cmd = ['jupyterhub-singleuser']
+    network_name = "host"
     events = False
 
     def get_args(self):
         args = [
             '--ip=0.0.0.0',
             '--port=%i' % self.port,
-            '--NotebookApp.base_url=%s' % self.server.base_url,
-            '--NotebookApp.token=%s' % self.user_options['token'],
-            '--NotebookApp.trust_xheaders=True',
         ]
         return args + self.args
+
+    @gen.coroutine
+    def get_ip_and_port(self):
+        return self.host_ip, self.port
 
     def start(self):
         if 'token' not in self.user_options:
@@ -58,7 +60,7 @@ class GallerySpawner(DockerSpawner):
         return super().start()
 
 
-class GalleryAuthenticator(NullAuthenticator):
+class GalleryAuthenticator(TmpAuthenticator):
     auto_login = True
 
     def login_url(self, base_url):
