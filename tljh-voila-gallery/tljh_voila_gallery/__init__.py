@@ -34,8 +34,10 @@ def options_form(spawner):
         return jinja2.Template(f.read()).render(examples=gallery['examples'])
 
 class GallerySpawner(DockerSpawner):
-    # FIXME: What to do about idle culling?!
     cmd = 'jupyter-notebook'
+
+    # rm containers when they stop
+    remove = True
 
     events = False
 
@@ -45,7 +47,12 @@ class GallerySpawner(DockerSpawner):
             '--port=%i' % self.port,
             '--NotebookApp.base_url=%s' % self.server.base_url,
             '--NotebookApp.token=%s' % self.user_options['token'],
-            '--NotebookApp.trust_xheaders=True',
+            '--NotebookApp.tornado_settings.trust_xheaders=True',
+            # stop idle servers
+            '--NotebookApp.shutdown_no_activity_timeout=600',
+            '--MappingKernelManager.cull_idle_timeout=600',
+            '--MappingKernelManager.cull_interval=60',
+            '--MappingKernelManager.cull_connected=True',
         ]
         return args + self.args
 
@@ -74,9 +81,6 @@ def tljh_custom_jupyterhub_config(c):
 
     # Don't kill servers when hub restarts
     c.JupyterHub.cleanup_servers = False
-
-    # rm containers when they stop
-    c.DockerSpawner.remove = True
 
     c.JupyterHub.services = [{
         'name': 'gallery',
