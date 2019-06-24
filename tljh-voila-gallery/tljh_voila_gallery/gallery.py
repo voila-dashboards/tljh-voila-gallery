@@ -1,18 +1,38 @@
-import os
-from tornado import ioloop, web
-from pkg_resources import resource_stream, resource_filename
-from ruamel.yaml import YAML
-from jinja2 import PackageLoader, Environment
 import json
+import os
+from urllib.parse import urlencode, urljoin
+
+import docker
 from binderhub.launcher import Launcher
-from urllib.parse import urljoin, urlencode
+from jinja2 import Environment, PackageLoader
+from pkg_resources import resource_filename, resource_stream
+from ruamel.yaml import YAML
+from tornado import ioloop, web
 
 yaml = YAML()
 
+
+def _get_docker_images():
+    client = docker.from_env()
+    image_tags = [
+        tag for image in client.images.list(filters={"dangling": False})
+        for tag in image.tags
+    ]
+    return set(image_tags)
+
+
 # Read gallery.yaml on each spawn. If this gets too expensive, cache it here
+# Only keep the examples that have a corresponding Docker image
 def get_gallery():
     with resource_stream(__name__, 'gallery.yaml') as f:
-        return yaml.load(f)
+        gallery = yaml.load(f)
+    images = _get_docker_images()
+    gallery['examples'] = {
+        name: ex for name, ex in gallery.get('examples', {}).items()
+        if f"{ex.get('title', '')}:latest" in images
+    }
+    return gallery
+
 
 templates = Environment(loader=PackageLoader('tljh_voila_gallery', 'templates'))
 

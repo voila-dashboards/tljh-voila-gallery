@@ -18,20 +18,6 @@ GALLERY_PATH = 'gallery.yaml'  # relative to package root
 
 TEMPLATES_PATH = resource_filename(__name__, 'templates')
 
-# Read gallery.yaml on each spawn. If this gets too expensive, cache it here
-def get_gallery():
-    with resource_stream(__name__, GALLERY_PATH) as f:
-        return yaml.load(f)
-
-
-def options_form(spawner):
-    # Load the files each time, so we can put them in a different
-    # 'data' repository where they can be updated without requiring
-    # JupyterHub restarts
-    gallery = get_gallery()
-
-    with open(os.path.join(TEMPLATES_PATH, 'options_form.html')) as f:
-        return jinja2.Template(f.read()).render(examples=gallery['examples'])
 
 class GallerySpawner(DockerSpawner):
     cmd = 'jupyter-notebook'
