@@ -2,7 +2,6 @@ import socket
 import sys
 import os
 import jinja2
-from pkg_resources import resource_stream, resource_filename
 from ruamel.yaml import YAML
 from tljh.hooks import hookimpl
 from tornado import web
@@ -12,12 +11,6 @@ from nullauthenticator import NullAuthenticator
 
 
 yaml = YAML()
-
-# FIXME: Make this configurable?
-GALLERY_PATH = 'gallery.yaml'  # relative to package root
-
-TEMPLATES_PATH = resource_filename(__name__, 'templates')
-
 
 class GallerySpawner(DockerSpawner):
     cmd = 'jupyter-notebook'

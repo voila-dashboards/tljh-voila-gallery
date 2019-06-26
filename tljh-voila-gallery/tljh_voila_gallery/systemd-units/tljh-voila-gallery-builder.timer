@@ -1,0 +1,10 @@
+[Unit]
+Description="Build the Docker images for the Voila Gallery Examples"
+
+[Timer]
+OnBootSec=1min
+OnUnitActiveSec=5min
+Unit=tljh-voila-gallery-builder.service
+
+[Install]
+WantedBy=multi-user.target
