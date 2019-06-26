@@ -6,7 +6,6 @@ After=jupyterhub.service
 User=root
 Restart=no
 ProtectHome=tmpfs
-WorkingDirectory=/opt/tljh
 # Protect bits that are normally shared across the system
 PrivateTmp=yes
 PrivateDevices=yes
