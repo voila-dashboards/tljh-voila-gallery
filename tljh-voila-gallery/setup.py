@@ -7,7 +7,7 @@ setup(
         "tljh": ["tljh_voila_gallery = tljh_voila_gallery"],
         "console_scripts": [
             "build-gallery-images = tljh_voila_gallery.build_images:main",
-            "install-build-units = tljh_voila_gallery.install_build_units:main"
+            "install-builder-units = tljh_voila_gallery.install_builder_units:main"
         ]
     },
     packages=find_packages(),
