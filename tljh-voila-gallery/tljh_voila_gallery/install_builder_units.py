@@ -3,7 +3,7 @@ from pkg_resources import resource_stream
 
 from tljh import systemd
 
-def main():
+def ensure_builder_units():
     gallery_builder_service = 'tljh-voila-gallery-builder.service'
     with resource_stream(__name__, f'./systemd-units/{gallery_builder_service}') as f:
         builder_unit_template = f.read().decode('utf-8')
@@ -27,4 +27,4 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    ensure_builder_units()

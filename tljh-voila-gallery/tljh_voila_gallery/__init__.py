@@ -9,6 +9,7 @@ from tornado import web
 from dockerspawner import DockerSpawner
 from nullauthenticator import NullAuthenticator
 
+from .install_builder_units import ensure_builder_units
 
 yaml = YAML()
 
@@ -52,6 +53,7 @@ class GalleryAuthenticator(NullAuthenticator):
 
 @hookimpl
 def tljh_custom_jupyterhub_config(c):
+    ensure_builder_units()
 
     c.JupyterHub.spawner_class = GallerySpawner
     c.JupyterHub.authenticator_class = GalleryAuthenticator
