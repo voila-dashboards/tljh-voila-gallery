@@ -3,7 +3,7 @@ Description="Build the Docker images for the Voila Gallery Examples"
 
 [Timer]
 OnBootSec=1min
-OnUnitActiveSec=12h
+OnUnitActiveSec=2h
 Unit=tljh-voila-gallery-builder.service
 
 [Install]
