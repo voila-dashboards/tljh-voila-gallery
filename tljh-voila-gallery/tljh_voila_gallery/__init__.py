@@ -51,10 +51,9 @@ class GalleryAuthenticator(NullAuthenticator):
     def login_url(self, base_url):
         return '/services/gallery'
 
+
 @hookimpl
 def tljh_custom_jupyterhub_config(c):
-    ensure_builder_units()
-
     c.JupyterHub.spawner_class = GallerySpawner
     c.JupyterHub.authenticator_class = GalleryAuthenticator
 
@@ -72,8 +71,14 @@ def tljh_custom_jupyterhub_config(c):
         ]
     }]
 
+
 @hookimpl
 def tljh_extra_apt_packages():
     return [
         'docker.io'
     ]
+
+
+@hookimpl
+def tljh_post_install():
+    ensure_builder_units()
