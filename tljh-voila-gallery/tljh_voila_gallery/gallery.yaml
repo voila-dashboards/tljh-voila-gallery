@@ -17,9 +17,9 @@ examples:
     url: voila/render/index.ipynb
     repo_url: https://github.com/voila-gallery/render-stl
     image_url: https://github.com/voila-gallery/render-stl/raw/master/thumbnail.png
-  xleaflet:
-    title: xleaflet
+  cpp-xleaflet:
+    title: cpp-xleaflet
     description: Interactive maps with xleaflet and the C++ kernel
     url: voila/render/index.ipynb
-    repo_url: https://github.com/jtpio/voila-gallery-xleaflet
-    image_url: https://github.com/jtpio/voila-gallery-xleaflet/raw/master/thumbnail.png
+    repo_url: https://github.com/voila-gallery/cpp-xleaflet
+    image_url: https://github.com/voila-gallery/cpp-xleaflet/raw/master/thumbnail.png
