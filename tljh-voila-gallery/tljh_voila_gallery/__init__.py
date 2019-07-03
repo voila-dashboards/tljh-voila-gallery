@@ -2,7 +2,6 @@ import socket
 import sys
 import os
 import jinja2
-from pkg_resources import resource_stream, resource_filename
 from ruamel.yaml import YAML
 from tljh.hooks import hookimpl
 from tornado import web
@@ -10,14 +9,9 @@ from tornado import web
 from dockerspawner import DockerSpawner
 from nullauthenticator import NullAuthenticator
 
+from .install_builder_units import ensure_builder_units
 
 yaml = YAML()
-
-# FIXME: Make this configurable?
-GALLERY_PATH = 'gallery.yaml'  # relative to package root
-
-TEMPLATES_PATH = resource_filename(__name__, 'templates')
-
 
 class GallerySpawner(DockerSpawner):
     cmd = 'jupyter-notebook'
@@ -59,6 +53,7 @@ class GalleryAuthenticator(NullAuthenticator):
 
 @hookimpl
 def tljh_custom_jupyterhub_config(c):
+    ensure_builder_units()
 
     c.JupyterHub.spawner_class = GallerySpawner
     c.JupyterHub.authenticator_class = GalleryAuthenticator

@@ -7,6 +7,8 @@ from collections import namedtuple
 from pkg_resources import resource_stream
 import logging
 
+import docker
+import requests
 from ruamel.yaml import YAML
 
 logging.basicConfig(level=logging.INFO)
@@ -58,6 +60,12 @@ def parse_gallery_config(fp):
 
 
 def main():
+    # prune stopped containers and dangling images
+    client = docker.from_env()
+    client.containers.prune()
+    client.images.prune()
+
+    # build the new images
     with resource_stream(__name__, GALLERY_PATH) as fp:
         examples = parse_gallery_config(fp)
     for example in examples:
