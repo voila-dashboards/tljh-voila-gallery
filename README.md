@@ -8,8 +8,7 @@ View the gallery at [voila-gallery.org](http://voila-gallery.org).
 
 ## Going back to the gallery screen
 
-At the moment, the only way to go back to gallery screen is to hit the
-[/hub/logout](http://voila-gallery.org/hub/logout) endpoint.
+You can go back to the gallery landing page using the back button of the web browser.
 
 ## Contributing new examples
 
