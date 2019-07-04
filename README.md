@@ -24,7 +24,7 @@ You can go back to the gallery landing page using the back button of the web bro
    - `repo_url`: the URL of the repository serving as source.
    - `image_url`: the URL of the picture to use as thumbnail.
 
-## Deploying you own gallery
+## Deploying your own gallery
 
 The voila gallery is built as a plugin for [The Littlest JupyterHub (TLJH)](https://tljh.jupyter.org). To deploy your own instance:
 
