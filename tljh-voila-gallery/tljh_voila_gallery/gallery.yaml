@@ -23,3 +23,9 @@ examples:
     url: voila/render/index.ipynb
     repo_url: https://github.com/voila-gallery/cpp-xleaflet
     image_url: https://github.com/voila-gallery/cpp-xleaflet/raw/master/thumbnail.png
+  gpx-viewer:
+    title: gpx-viewer
+    description: GPX Viewer web app built with ipywidgets, ipyleaflet, bqplot and voila
+    url: voila/render/app.ipynb
+    repo_url: https://github.com/jtpio/voila-gpx-viewer
+    image_url: https://user-images.githubusercontent.com/591645/60527710-0ff1c680-9cf3-11e9-87b5-8711fd3da344.gif
