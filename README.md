@@ -13,13 +13,13 @@ You can go back to the gallery landing page using the back button of the web bro
 ## Contributing new examples
 
 1. Create a repository with your notebook. You can copy the [gaussian-density](https://github.com/voila-gallery/gaussian-density) example.
+2. The gallery launches the examples using Docker containers, similar to what Binder does. This means that [the repository can be first tested on Binder](https://mybinder.readthedocs.io/en/latest/introduction.html#preparing-a-repository-for-binder).
 2. Test your repository on Binder.
 3. Create a PR to [voila-gallery](https://github.com/voila-gallery/gallery) that
    modifies `tljh-voila-gallery/tljh_voila_gallery/gallery.yaml`.
    You will need to fill in the following fields:
    - `title`: the title used in the page thumbnail.
    - `description`: the description used in the page thumbnail.
-   - `image`: the name of the built Docker image. This should be `$title:latest`.
    - `url`: the URL of the notebook to render.
    - `repo_url`: the URL of the repository serving as source.
    - `image_url`: the URL of the picture to use as thumbnail.
