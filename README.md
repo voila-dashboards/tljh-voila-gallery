@@ -12,7 +12,7 @@ You can go back to the gallery landing page using the back button of the web bro
 
 ## Contributing new examples
 
-1. Create a repository with your notebook. You can copy the [gaussian-density](https://github.com/voila-gallery/gaussian-density) example.
+1. Create a repository with your notebook. You can start from the [hello-world](https://github.com/voila-gallery/hello-world-example) example.
 2. The gallery launches the examples using Docker containers, similar to what Binder does. This means that [the repository can be first tested on Binder](https://mybinder.readthedocs.io/en/latest/introduction.html#preparing-a-repository-for-binder).
 2. Test your repository on Binder.
 3. Create a PR to [voila-gallery](https://github.com/voila-gallery/gallery) that
