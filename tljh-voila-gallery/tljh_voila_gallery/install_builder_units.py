@@ -1,7 +1,11 @@
+import os
 import sys
 from pkg_resources import resource_stream
 
 from tljh import systemd
+
+GALLERY_REPO = os.environ.get('GALLERY_REPO', 'git+https://github.com/voila-gallery/gallery@master#"egg=tljh-voila-gallery&subdirectory=tljh-voila-gallery"')
+
 
 def ensure_builder_units():
     gallery_builder_service = 'tljh-voila-gallery-builder.service'
@@ -14,6 +18,7 @@ def ensure_builder_units():
 
     unit_params = dict(
         python_interpreter_path=sys.executable,
+        gallery_repo=GALLERY_REPO,
     )
 
     systemd.install_unit(gallery_builder_service, builder_unit_template.format(**unit_params))

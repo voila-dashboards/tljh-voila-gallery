@@ -11,6 +11,9 @@ PrivateTmp=yes
 PrivateDevices=yes
 ProtectKernelTunables=yes
 ProtectKernelModules=yes
+# Update with the new gallery
+ExecStartPre={python_interpreter_path} -m pip install -U {gallery_repo}
+# Build the new Docker images
 ExecStart={python_interpreter_path} -m tljh_voila_gallery.build_images
 
 [Install]
