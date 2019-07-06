@@ -1,78 +1,59 @@
-
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Voila, ipywidgets and Jupyter display examples">
-    <meta name="author" content="Voila Gallery contributors">
-    <title>Voila Gallery</title>
 
-    <link rel="stylesheet" href="{{ static_url('vendor/bootstrap-4.0.0/css/bootstrap.min.css') }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Voila, ipywidgets and Jupyter display examples">
+  <meta name="author" content="Voila Gallery contributors">
+  <title>Voila Gallery</title>
 
-    <link rel="stylesheet" href="{{ static_url('style.css') }}">
+  <link rel="stylesheet" href="{{ static_url('vendor/bootstrap-4.0.0/css/bootstrap.min.css') }}">
 
-    <script src="{{ static_url('vendor/jquery-3.4.1.slim.min.js') }}"></script>
-    <script src="{{ static_url('index.js') }}"></script>
+  <link rel="stylesheet" href="{{ static_url('style.css') }}">
 
-  </head>
-  <body>
-    <header>
-  <div class="collapse bg-dark" id="navbarHeader">
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-8 col-md-7 py-4">
-          <h4 class="text-white">About</h4>
-	  <p class="text-muted"><em>Voila Gallery</em> is a gallery of <a href="https://github.com/QuantStack/voila">voila</a> examples. We hope you use these to find inspiration for creating your own dashboard or ipywidget applications.</p>
-        </div>
-        <div class="col-sm-4 offset-md-1 py-4">
-          <h4 class="text-white">Built with:</h4>
-          <ul class="list-unstyled">
-            <li><a href="https://github.com/QuantStack/voila" class="text-white">Voila</a></li>
-            <li><a href="https://github.com/jupyter-widgets/ipywidgets" class="text-white">ipywidgets</a></li>
-            <li><a href="https://tljh.jupyter.org" class="text-white">The Littlest JupyterHub</a></li>
-          </ul>
-        </div>
+  <script src="{{ static_url('vendor/jquery-3.4.1.slim.min.js') }}"></script>
+  <script src="{{ static_url('index.js') }}"></script>
+
+</head>
+
+<body>
+  <header>
+  </header>
+
+  <main role="main">
+    <section class="jumbotron text-center">
+      <div class="container">
+        <p><img src="{{ static_url('voila-gallery-logo.png') }}" /></p>
+        <p class="lead text-muted">This gallery contains fully interactive examples of interactive Jupyter
+         dashboards and applications rendered by Voila.</p>
+        <p class="lead text-muted">Use these to find inspiration for creating your own dashboard applications.</p>
+      </div>
+    </section>
+
+    <div class="album py-5 bg-light">
+      <div class="container">
+        {% block body %}
+        {% endblock %}
       </div>
     </div>
-  </div>
-  <div class="navbar navbar-dark bg-dark shadow-sm">
-    <div class="container d-flex justify-content-between">
-      <a href="#" class="navbar-brand d-flex align-items-center">
-        <strong>Voila Gallery</strong>
-      </a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-    </div>
-  </div>
-</header>
+  </main>
 
-<main role="main">
+  <script src="{{ static_url('vendor/bootstrap-4.0.0/js/bootstrap.min.js') }}"></script>
 
-  <section class="jumbotron text-center">
+  <footer class="footer">
     <div class="container">
-      <h1 class="jumbotron-heading">Voila Dashboards Gallery</h1>
-      <p class="lead text-muted">This gallery contains fully interactive examples of widgets and other interactive dashboards rendered by Voila</p>
+      <p class="float-right">
+        <span class="text-muted">Thanks <a href="https://ovh.com">OVH</a> for kindly hosting the gallery!</span>
+      </p>
+      <span class="text-muted">Built with
+        <a href="https://github.com/QuantStack/voila">voila</a>,
+        <a href="https://github.com/jupyter-widgets/ipywidgets">ipywidgets</a> and
+        <a href="https://tljh.jupyter.org">The Littlest JupyterHub</a>
+      </span>
     </div>
-  </section>
+  </footer>
 
-  <div class="album py-5 bg-light">
-    <div class="container">
-      {% block body %}
-      {% endblock %}
-    </div>
-  </div>
+</body>
 
-</main>
-<script src="{{ static_url('vendor/bootstrap-4.0.0/js/bootstrap.min.js') }}"></script>
-
-<footer class="footer">
-  <div class="container">
-    <span class="text-muted">Kindly hosted by <a href="https://ovh.com">OVH</a></span>
-  </div>
-</footer>
-
-  </body>
 </html>
-

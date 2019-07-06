@@ -1,4 +1,4 @@
-# Voila Gallery
+![voila-gallery-logo](./voila-gallery.svg)
 
 This is a gallery of [voila](https://github.com/QuantStack/voila)
 examples. Use this for inspiration on using voila and
