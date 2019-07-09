@@ -41,8 +41,6 @@ def build_image(example):
         '--no-run',
         '--image-name',
         example.image,
-        '--appendix',
-        'run ${NB_PYTHON_PREFIX}/bin/pip install --no-cache-dir voila==0.1.5',
         example.repo_url
     ])
 
