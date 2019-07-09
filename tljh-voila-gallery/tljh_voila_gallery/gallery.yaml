@@ -29,3 +29,9 @@ examples:
     url: voila/render/app.ipynb
     repo_url: https://github.com/jtpio/voila-gpx-viewer
     image_url: https://user-images.githubusercontent.com/591645/60527710-0ff1c680-9cf3-11e9-87b5-8711fd3da344.gif
+  interactive-football-pitch:
+    title: interactive-football-pitch
+    description: Interactive football pitch build with voila, qgrid and bqplot.
+    url: voila/render/Interactive-Football-Pitch.ipynb
+    repo_url: https://github.com/seidlr/voila-interactive-football-pitch
+    image_url: https://i.imgur.com/yuWQZtL.png
