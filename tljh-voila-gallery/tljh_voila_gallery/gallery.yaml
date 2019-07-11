@@ -4,30 +4,35 @@ examples:
     description: Explore the correlations between indicators of development using matplotlib and ipywidgets
     url: voila/render/index.ipynb
     repo_url: https://github.com/voila-gallery/voila-gallery-country-indicators
+    ref: 7cd5df8169fe6acefe1d5a200f9878e441b9208a
     image_url: https://i.imgur.com/IeG75O3.png
   gaussian-density:
     title: gaussian-density
     description: Explore the normal distribution interactively with bqplot
     url: voila/render/index.ipynb
     repo_url: https://github.com/voila-gallery/gaussian-density
+    ref: a643a1b180e1892840f4f692115f05a2b6df7bcb
     image_url: https://i.imgur.com/J1Mj6rc.png
   render-stl:
     title: render-stl
     description: Explore STL files with ipyvolume
     url: voila/render/index.ipynb
     repo_url: https://github.com/voila-gallery/render-stl
+    ref: 23182d099e3b97bce3f64ec383d93ddc4734fe17
     image_url: https://github.com/voila-gallery/render-stl/raw/master/thumbnail.png
   cpp-xleaflet:
     title: cpp-xleaflet
     description: Interactive maps with xleaflet and the C++ kernel
     url: voila/render/index.ipynb
     repo_url: https://github.com/voila-gallery/cpp-xleaflet
+    ref: 86e31eb875b72af62c4168efb53158735104251d
     image_url: https://github.com/voila-gallery/cpp-xleaflet/raw/master/thumbnail.png
   gpx-viewer:
     title: gpx-viewer
     description: GPX Viewer web app built with ipywidgets, ipyleaflet, bqplot and voila
     url: voila/render/app.ipynb
     repo_url: https://github.com/jtpio/voila-gpx-viewer
+    ref: 43771ead52a64ef3afb8adf023c409f560cd272c
     image_url: https://user-images.githubusercontent.com/591645/60527710-0ff1c680-9cf3-11e9-87b5-8711fd3da344.gif
   interactive-football-pitch:
     title: interactive-football-pitch
