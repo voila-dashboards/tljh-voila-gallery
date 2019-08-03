@@ -29,3 +29,9 @@ examples:
     url: voila/render/app.ipynb
     repo_url: https://github.com/jtpio/voila-gpx-viewer
     image_url: https://user-images.githubusercontent.com/591645/60527710-0ff1c680-9cf3-11e9-87b5-8711fd3da344.gif
+  codex-clustergrammer2:
+    title: codex-clustergrammer2
+    description: CODEX Single Cell Multiplesed Imaging Dashboard
+    url: voila/render/index.ipynb
+    repo_url: https://github.com/ismms-himc/codex_dashboard
+    image_url: https://github.com/ismms-himc/codex_dashboard/blob/master/img/codex_screenshot.png
