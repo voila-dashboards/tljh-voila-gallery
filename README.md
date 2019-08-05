@@ -22,6 +22,7 @@ You can go back to the gallery landing page using the back button of the web bro
    - `description`: the description used in the page thumbnail.
    - `url`: the URL of the notebook to render.
    - `repo_url`: the URL of the repository serving as source.
+   - `ref`: the commit hash used to pin to a specific version of the example
    - `image_url`: the URL of the picture to use as thumbnail.
 
 ## Deploying your own gallery

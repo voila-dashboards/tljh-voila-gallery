@@ -22,7 +22,8 @@ Example = namedtuple(
     'Example',
     [
         'image',
-        'repo_url'
+        'repo_url',
+        'ref'
     ]
 )
 
@@ -33,7 +34,7 @@ def build_image(example):
         '-m',
         'repo2docker',
         '--ref',
-        'master',
+        example.ref,
         '--user-name',
         'jovyan',
         '--user-id',
@@ -51,7 +52,8 @@ def parse_gallery_config(fp):
     for example_name, example_yaml in config['examples'].items():
         example = Example(
             image=f'{example_name}:latest',
-            repo_url=example_yaml['repo_url']
+            repo_url=example_yaml['repo_url'],
+            ref=example_yaml.get('ref', 'master'),
         )
         examples.append(example)
     return examples
