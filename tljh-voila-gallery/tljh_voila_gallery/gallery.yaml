@@ -40,4 +40,4 @@ examples:
     description: CODEX Single Cell Multiplexed Imaging Dashboard
     url: voila/render/index.ipynb
     repo_url: https://github.com/ismms-himc/codex_dashboard
-    image_url: https://github.com/ismms-himc/codex_dashboard/blob/master/img/codex_screenshot.png
+    image_url: https://raw.githubusercontent.com/ismms-himc/codex_dashboard/master/img/codex_screenshot.png
