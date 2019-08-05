@@ -35,3 +35,9 @@ examples:
     url: voila/render/Interactive-Football-Pitch.ipynb
     repo_url: https://github.com/seidlr/voila-interactive-football-pitch
     image_url: https://i.imgur.com/yuWQZtL.png
+  codex-clustergrammer2:
+    title: codex-clustergrammer2
+    description: CODEX Single Cell Multiplexed Imaging Dashboard
+    url: voila/render/index.ipynb
+    repo_url: https://github.com/ismms-himc/codex_dashboard
+    image_url: https://raw.githubusercontent.com/ismms-himc/codex_dashboard/master/img/codex_screenshot.png
