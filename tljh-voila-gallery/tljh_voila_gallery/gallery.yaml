@@ -45,6 +45,6 @@ examples:
     title: codex-clustergrammer2
     description: CODEX Single Cell Multiplexed Imaging Dashboard
     url: voila/render/index.ipynb
-    ref: 8503231929bbb18cea9ef737a6c14d4c6c3ff04b
+    ref: b8c8fb820c918d4fc343cf6d8a25bd81cad837c9
     repo_url: https://github.com/ismms-himc/codex_dashboard
     image_url: https://raw.githubusercontent.com/ismms-himc/codex_dashboard/master/img/codex_screenshot.png
