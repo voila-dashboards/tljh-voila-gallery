@@ -32,7 +32,7 @@ examples:
     description: GPX Viewer web app built with ipywidgets, ipyleaflet, bqplot and voila
     url: voila/render/app.ipynb
     repo_url: https://github.com/jtpio/voila-gpx-viewer
-    ref: 43771ead52a64ef3afb8adf023c409f560cd272c
+    ref: 70d1f64afdba917cb220c4326ca95cd956f55747
     image_url: https://user-images.githubusercontent.com/591645/60527710-0ff1c680-9cf3-11e9-87b5-8711fd3da344.gif
   interactive-football-pitch:
     title: interactive-football-pitch
