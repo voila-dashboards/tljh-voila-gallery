@@ -48,3 +48,10 @@ examples:
     ref: b8c8fb820c918d4fc343cf6d8a25bd81cad837c9
     repo_url: https://github.com/ismms-himc/codex_dashboard
     image_url: https://raw.githubusercontent.com/ismms-himc/codex_dashboard/master/img/codex_screenshot.png
+  ipymaps:
+    title: ipymaps
+    description: Maps with configurable search queries
+    url: voila/render/ipymaps.ipynb
+    repo_url: https://github.com/deeplook/ipymaps
+    ref: ae7e7b2d41405592d632dd5ee721718602a81e46
+    image_url: https://raw.githubusercontent.com/deeplook/ipymaps/master/ipymaps.gif
