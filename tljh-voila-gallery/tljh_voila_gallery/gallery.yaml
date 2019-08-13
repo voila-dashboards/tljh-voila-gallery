@@ -60,5 +60,5 @@ examples:
     description: An interactive visualization of machine learning evaluation metrics
     url: voila/render/machine-learning-interactive-visualization.ipynb
     repo_url: https://github.com/dhaitz/machine-learning-interactive-visualization
-    ref: 0dc76c5647aa2161770a30efd265b1af66254982
+    ref: 70b23f05c9e36be556e806996bab7face26b893d
     image_url: https://raw.githubusercontent.com/dhaitz/machine-learning-interactive-visualization/master/img/ml_visualization.gif
