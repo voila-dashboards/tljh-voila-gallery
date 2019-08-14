@@ -55,3 +55,10 @@ examples:
     repo_url: https://github.com/deeplook/ipymaps
     ref: ae7e7b2d41405592d632dd5ee721718602a81e46
     image_url: https://raw.githubusercontent.com/deeplook/ipymaps/master/ipymaps.gif
+  machine-learning-visualization:
+    title: machine-learning-visualization
+    description: An interactive visualization of machine learning evaluation metrics
+    url: voila/render/machine-learning-interactive-visualization.ipynb
+    repo_url: https://github.com/dhaitz/machine-learning-interactive-visualization
+    ref: 70b23f05c9e36be556e806996bab7face26b893d
+    image_url: https://raw.githubusercontent.com/dhaitz/machine-learning-interactive-visualization/master/img/ml_visualization.gif
