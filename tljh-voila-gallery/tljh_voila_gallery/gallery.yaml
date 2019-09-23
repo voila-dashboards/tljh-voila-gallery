@@ -62,3 +62,10 @@ examples:
     repo_url: https://github.com/dhaitz/machine-learning-interactive-visualization
     ref: 70b23f05c9e36be556e806996bab7face26b893d
     image_url: https://raw.githubusercontent.com/dhaitz/machine-learning-interactive-visualization/master/img/ml_visualization.gif
+  borehole-lithology-viewer:
+    title: borehole-lithology-viewer
+    description: Descriptive lithology in borehole logs with ipyleaflet, ipysheet and voila
+    url: voila/render/app.ipynb
+    repo_url: https://github.com/csiro-hydrogeology/lithology-viewer
+    ref: 30f3a3b9e3729c7f5848fa3cee6614c801e22ee7
+    image_url: https://raw.githubusercontent.com/csiro-hydrogeology/lithology-viewer/master/img/canberra_litho.png
