@@ -1,3 +1,5 @@
+# Voilà Gallery
+
 ![voila-gallery-logo](./voila-gallery.svg)
 
 This is a gallery of [voila](https://github.com/QuantStack/voila)
