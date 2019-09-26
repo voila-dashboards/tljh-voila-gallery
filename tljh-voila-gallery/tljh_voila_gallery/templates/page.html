@@ -22,16 +22,20 @@
   </header>
 
   <main role="main">
-    <section class="jumbotron text-center">
+    <div class="content-fluid voila-blue">
       <div class="container">
-        <p><img src="{{ static_url('voila-gallery-logo.png') }}" /></p>
-        <p class="lead text-muted">This gallery contains examples of Jupyter notebooks
-         turned into standalone web applications by Voilà.</p>
-        <p class="lead text-muted">Use these for inspiration when creating your own dashboard applications.</p>
+        <div>
+          <img src="{{ static_url('voila-logo-white.svg') }}" style="margin: 40px auto 40px auto; max-width: 400px; display: block;"/>
+        
+          <h4 style="text-align: center">A gallery of Voilà dashboards</h4>
+          <div style="margin: auto; max-width: 800px;">
+            <p>This gallery contains examples of Jupyter notebooks turned into standalone web applications by Voilà. Use these for inspiration when creating your own dashboard applications.</p>
+          </div>
+        </div>
       </div>
-    </section>
+    </div>
 
-    <div class="album py-5 bg-light">
+    <div class="content-fluid voila-white">
       <div class="container">
         {% block body %}
         {% endblock %}
@@ -41,12 +45,12 @@
 
   <script src="{{ static_url('vendor/bootstrap-4.0.0/js/bootstrap.min.js') }}"></script>
 
-  <footer class="footer">
+  <footer class="footer content-fluid voila-blue">
     <div class="container">
       <p class="float-right">
-        <span class="text-muted">Thanks <a href="https://ovh.com">OVH</a> for kindly hosting the gallery!</span>
+        <span>Many thanks <a href="https://ovh.com">OVH</a> for kindly hosting the gallery!</span>
       </p>
-      <span class="text-muted">Built with
+      <span>Built with
         <a href="https://github.com/QuantStack/voila">voila</a>,
         <a href="https://github.com/jupyter-widgets/ipywidgets">ipywidgets</a> and
         <a href="https://tljh.jupyter.org">The Littlest JupyterHub</a>

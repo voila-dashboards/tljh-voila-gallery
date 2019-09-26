@@ -1,27 +1,49 @@
-.bd-placeholder-img {
-    font-size: 1.125rem;
-    text-anchor: middle;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
+/* Main page areas */
+.voila-white {
+    background: white;
+    color: #222;
+    padding: 20px;
 }
 
-@media (min-width: 768px) {
-    .bd-placeholder-img-lg {
-        font-size: 3.5rem;
-    }
+.voila-white a {
+    color: #ddd;
 }
 
-/* Set a Minimum height for our card texts */
-.card-text {
-	  min-height: 5em;
+.voila-white a:hover {
+    color: #eee;
 }
 
-.footer {
-    padding-bottom: 10px;
+.voila-blue {
+    background: #5dbcaf;
+    color: white;
+    padding: 20px;
 }
 
-.launch-example {
-    background-color: #f37726ff;
+.voila-blue a {
+    color: #ddd;
 }
+
+.voila-blue a:hover {
+    color: #eee;
+}
+
+/* Table */
+
+[class*="col-"] {
+    float: none;
+    display: table-cell;
+    vertical-align: top;
+}
+
+.gallery-item {
+  height: 100%;
+  padding: 8px;
+  box-shadow: 4px 4px 12px #aaa;
+  user-select: none;
+}
+
+.gallery-item:hover {
+  box-shadow: none;
+  cursor: pointer;
+}
+
