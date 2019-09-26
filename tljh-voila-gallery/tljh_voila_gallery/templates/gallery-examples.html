@@ -1,28 +1,33 @@
 {% extends "page.html" %}
 
 {% block body %}
-        <form enctype="multipart/form-data" id="spawn_form" action="{{url}}" method="post" role="form">
-<div class="row">
-{% for example_name, info in examples.items() %}
-        <div class="col-md-4">
-          <div class="card mb-4 shadow-sm">
-<img src="{{info.image_url}}" height="225" width="100%" />
-            <div class="card-body">
-	      <h4>{{ info.title }}</h4>
-              <p class="card-text">{{ info.description }}</p>
+  <form enctype="multipart/form-data" id="spawn_form" action="{{url}}" method="post" role="form">
+
+    <div class="row no-gutters">
+      {% for example_name, info in examples.items() %}
+        <div class="col-md-4" style="height: 400px; padding: 16px;">
+          <div class="gallery-item">
+            <img style="height: 50%; width: 100%; object-fit: contain;" src="{{info.image_url}}" />
+            <div style="height: 30%;">
+              <h4 style="margin-top: .5rem; text-overflow: ellipsis; overflow: hidden;   white-space: nowrap;
+
+">{{ info.title }}</h4>
+              <p>{{ info.description }}</p>
+            </div>
+            <div style="height: 20%;">
               <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-    <input type="radio" name="example" id="example-{{example_name}}" value="{{example_name}}" class="d-none"/>
-                  <button type="submit" data-example-name="{{example_name}}" class="launch-example btn">Launch Example</button>
-                  <a href="{{info.repo_url}}" target="_blank" type="button" class="btn btn-secondary">View Source</a>
+                <div class="btn-group" style="width: 100%;" >
+                  <input type="radio" name="example" id="example-{{example_name}}" value="{{example_name}}" class="d-none"/>
+                  <button style="width: 50%; overflow: hidden;" type="submit" data-example-name="{{example_name}}" class="launch-example btn">Launch</button>
+                  <a style="width: 50%; overflow: hidden;" href="{{info.repo_url}}" target="_blank" type="button" class="btn btn-secondary">Source</a>
                 </div>
               </div>
             </div>
           </div>
         </div>
-{% endfor %}
-</div>
+      {% endfor %}
+    </div>
 
-        </form>
+  </form>
 
 {% endblock %}
