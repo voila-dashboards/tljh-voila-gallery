@@ -17,7 +17,7 @@ You can go back to the gallery landing page using the back button of the web bro
 1. Create a repository with your notebook. You can start from the [hello-world](https://github.com/voila-gallery/hello-world-example) example.
 2. The gallery launches the examples using [repo2docker](https://github.com/jupyter/repo2docker), exactly the same way Binder does. This means that [the repository can be first tested on Binder](https://mybinder.readthedocs.io/en/latest/introduction.html#preparing-a-repository-for-binder).
 2. Test your repository on Binder.
-3. Create a PR to [voila-gallery](https://github.com/voila-gallery/gallery) that
+3. Create a PR to [voila-gallery](https://github.com/voila-dashboards/gallery) that
    modifies `tljh-voila-gallery/tljh_voila_gallery/gallery.yaml`.
    You will need to fill in the following fields:
    - `title`: the title used in the page thumbnail.
@@ -31,7 +31,7 @@ You can go back to the gallery landing page using the back button of the web bro
 
 The voila gallery is built as a plugin for [The Littlest JupyterHub (TLJH)](https://tljh.jupyter.org). To deploy your own instance:
 
-1. Fork the gallery repo: https://github.com/voila-gallery/gallery
+1. Fork the gallery repo: https://github.com/voila-dashboards/gallery
 2. Edit the `tljh-voila-gallery/tljh_voila_gallery/gallery.yaml` file with your own set of examples
 3. Follow [one of the tutorials to install TLJH](https://tljh.jupyter.org/en/latest/#installation)
 4. At the step asking for user data, use the following command:
