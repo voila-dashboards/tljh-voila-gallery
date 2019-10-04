@@ -69,3 +69,10 @@ examples:
     repo_url: https://github.com/csiro-hydrogeology/lithology-viewer
     ref: 30f3a3b9e3729c7f5848fa3cee6614c801e22ee7
     image_url: https://raw.githubusercontent.com/csiro-hydrogeology/lithology-viewer/master/img/canberra_litho.png
+  gradient_descent_material:
+    title: gradient-descent
+    description: A gradient descent computation using bqplot and a the voila-material design template
+    url: voila/render/gradient_descent.ipynb
+    repo_url: https://github.com/voila-dashboards/voila-material
+    ref: 6e88fefc5a2619b77959c7013cb10bf2c3fd1f8e
+    image_url: https://raw.githubusercontent.com/voila-dashboards/voila-material/master/material_light.png
