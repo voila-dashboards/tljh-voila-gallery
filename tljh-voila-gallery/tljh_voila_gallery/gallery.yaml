@@ -71,7 +71,7 @@ examples:
     image_url: https://raw.githubusercontent.com/csiro-hydrogeology/lithology-viewer/master/img/canberra_litho.png
   gradient-descent-material:
     title: gradient-descent-material
-    description: A gradient descent computation using bqplot and a the voila-material design template
+    description: A gradient descent computation using bqplot and the voila-material design template
     url: voila/render/gradient_descent.ipynb
     repo_url: https://github.com/voila-dashboards/voila-material
     ref: 6e88fefc5a2619b77959c7013cb10bf2c3fd1f8e
