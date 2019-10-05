@@ -29,7 +29,7 @@ def get_gallery():
     images = _get_docker_images()
     gallery['examples'] = {
         name: ex for name, ex in gallery.get('examples', {}).items()
-        if f"{ex.get('title', '')}:latest" in images
+        if f"{name}:latest" in images
     }
     return gallery
 
