@@ -38,12 +38,13 @@
 
 .gallery-item {
   height: 100%;
-  box-shadow: 4px 4px 12px #aaa;
+  box-shadow: none;
   user-select: none;
+  border: 1px solid rgba(0,0,0,.125);
+  border-radius: .25rem;
 }
 
 .gallery-item:hover {
-  box-shadow: none;
+  box-shadow: 4px 4px 12px #aaa;
   cursor: pointer;
 }
-
