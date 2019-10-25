@@ -2,8 +2,8 @@
 
 ![voila-gallery-logo](./voila-gallery.svg)
 
-This is a gallery of [voila](https://github.com/QuantStack/voila)
-examples. Use this for inspiration on using voila and
+This is a gallery of [Voilà](https://github.com/voila-dashboards//voila)
+examples. Use this for inspiration on using Voilà and
 [ipywidgets](https://github.com/jupyter-widgets/ipywidgets).
 
 View the gallery at [voila-gallery.org](http://voila-gallery.org).
@@ -29,7 +29,7 @@ You can go back to the gallery landing page using the back button of the web bro
 
 ## Deploying your own gallery
 
-The voila gallery is built as a plugin for [The Littlest JupyterHub (TLJH)](https://tljh.jupyter.org). To deploy your own instance:
+The Voilà gallery is built as a plugin for [The Littlest JupyterHub (TLJH)](https://tljh.jupyter.org). To deploy your own instance:
 
 1. Fork the gallery repo: https://github.com/voila-dashboards/gallery
 2. Edit the `tljh-voila-gallery/tljh_voila_gallery/gallery.yaml` file with your own set of examples
@@ -43,4 +43,18 @@ curl https://raw.githubusercontent.com/jupyterhub/the-littlest-jupyterhub/master
    --plugin git+https://github.com/<your-username>/gallery@master#"egg=tljh-voila-gallery&subdirectory=tljh-voila-gallery"
 ```
 5. The install process might take between 5 and 10 minutes to complete.
-6. Dependending on the method and cloud provider chosen in step 1, you will get the public IP of the server, which can be used to access the gallery
+6. Dependending on the method and cloud provider chosen in Step 1, you will get the public IP of the server, which can be used to access the gallery
+
+## Development
+
+See [CONTRIBUTING.md](./CONTRIBUTING.md) to know how to contribute and set up a development environment.
+
+## Related projects
+
+## License
+
+We use a shared copyright model that enables all contributors to maintain the
+copyright on their contributions.
+
+This software is licensed under the BSD-3-Clause license. See the
+[LICENSE](LICENSE) file for details.
