@@ -23,5 +23,5 @@ jobs:
 
     - name: Check voila-gallery.org is reachable
       run: |
-        sleep 5
+        sleep 30
         curl -sSf https://voila-gallery.org > /dev/null
